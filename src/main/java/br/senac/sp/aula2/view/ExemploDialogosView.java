@@ -36,6 +36,7 @@ public class ExemploDialogosView extends javax.swing.JFrame {
         btnAlerta = new javax.swing.JButton();
         btnOpcoes = new javax.swing.JButton();
         btnJDialog = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Exemplo Diálogos - Frame Principal");
@@ -105,52 +106,112 @@ public class ExemploDialogosView extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 333, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnJDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnJDialog, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnJDialog, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAlertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertaActionPerformed
-        // TODO add your handling code here:
-
+        JOptionPane.showMessageDialog(null, "Alerta","Message Dialog", JOptionPane.WARNING_MESSAGE);
+        System.out.println("OK");
     }//GEN-LAST:event_btnAlertaActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        // TODO add your handling code here:
-        
+        int retorno= (int)JOptionPane.showConfirmDialog(null,"Deseja Salvar? ", "Título",JOptionPane.YES_NO_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE);
+        if (retorno == 0){
+            System.out.println("Yes");
+        }
+        if (retorno == 1){
+            System.out.println("No");
+        }
+        if (retorno == 2){
+            System.out.println("Cancel");
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void btnEntradaSimplesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntradaSimplesActionPerformed
-        // TODO add your handling code here:
+        String retorno = JOptionPane.showInputDialog(null, "Digite seu nome:");
+        if((retorno != null) && (retorno == "")){
+            System.out.println(retorno);
+            System.out.println("OK");
+        }
+        if(retorno ==""){
+            System.out.println("OK");
+        }
+        
+        else {
+            System.out.println("Cancel");
+        }
         
     }//GEN-LAST:event_btnEntradaSimplesActionPerformed
 
     private void btnOpcoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcoesActionPerformed
-        // TODO add your handling code here:
+    int escolha = JOptionPane.showOptionDialog(null,            //Componente pai
+                           "Qual sistema de medidas usar?", //mensagem,
+                           "Escolha uma opção",             //Título
+                           JOptionPane.YES_NO_OPTION,       //int optionType
+                           JOptionPane.INFORMATION_MESSAGE, //Tipo de Mensagem
+                           null,                            //Icon icon
+                           new Object[]{"Km","Milhas","Polegadas","Jardas"},  //Object[] opções,
+                           "Km");                                             //Object initialValue 
         
+    if (escolha == 0){
+        System.out.println("KM");
+    }
+    if (escolha == 1){
+        System.out.println("Milhas");
+    }
+    if (escolha == 2){
+        System.out.println("Polegadas");
+    }
+    if (escolha == 3){
+        System.out.println("Jardas");
+    }
+    
+    
     }//GEN-LAST:event_btnOpcoesActionPerformed
 
     private void btnJDialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJDialogActionPerformed
-        // TODO add your handling code here:
+        ExemploJDialogView dialogoView = new ExemploJDialogView(this,true); 
+            dialogoView.setVisible(true);
+            
     }//GEN-LAST:event_btnJDialogActionPerformed
 
     /**
@@ -202,5 +263,6 @@ public class ExemploDialogosView extends javax.swing.JFrame {
     private javax.swing.JButton btnOpcoes;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
